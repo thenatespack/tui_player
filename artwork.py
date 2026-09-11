@@ -138,7 +138,7 @@ def get_song_info(song_path: Path) -> SongInfo:
 
 
 def format_duration(seconds: float | None) -> str:
-    if not seconds or seconds < 0:
+    if seconds is None or seconds < 0:
         return "--:--"
     minutes, secs = divmod(int(seconds), 60)
     return f"{minutes}:{secs:02d}"

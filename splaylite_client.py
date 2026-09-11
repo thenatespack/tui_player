@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_REPO = Path(os.environ.get("SPLAYLITE_REPO", "~/splaylite")).expanduser()
+VENDORED_DIR = Path(__file__).parent / "lib"
 
 _LIB_NAMES = {
     "darwin": "libsplaylite.dylib",
@@ -20,6 +21,9 @@ def default_lib_path() -> Path:
     if override:
         return Path(override).expanduser()
     name = _LIB_NAMES.get(sys.platform, "libsplaylite.so")
+    vendored = VENDORED_DIR / name
+    if vendored.is_file():
+        return vendored
     return DEFAULT_REPO / "zig-out" / "lib" / name
 
 
