@@ -65,3 +65,7 @@ Album art is cached per song after the first render, and the player prefetches (
 Supported formats: mp3, wav, ogg, flac, m4a, opus, aac, wma (whatever your mpv build supports).
 
 Cover art is pulled from embedded tags (ID3/FLAC/MP4) or a `cover`/`folder`/`front`/`album` image file next to the song, then rendered with chafa.
+
+## License
+
+[MIT](LICENSE)
